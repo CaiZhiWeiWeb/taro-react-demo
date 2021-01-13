@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, Image } from "@tarojs/components";
+import { View, Text, Image } from "@tarojs/components";
 import Taro from "@tarojs/taro"
-import { fun1, fun2 } from "../../utils/index";
+import { fun1, fun2 } from "@utils/index";
+import { AtButton } from "taro-ui";
 
 export default () => {
   //获取books
@@ -28,7 +29,7 @@ export default () => {
     <View className='demo'>
       <Text>this is demo page</Text>
       <View>
-        <Image src={require('../../assets/image/logo.png')}></Image>
+        <Image src={require('@assets/image/logo.png')}></Image>
       </View>
       <View>
         {
@@ -42,7 +43,7 @@ export default () => {
           })
         }
       </View>
-      <Button onClick={gotoIndex}>goto index page</Button>
+      <AtButton type='primary' onClick={gotoIndex}>goto index page</AtButton>
     </View>
   )
 }

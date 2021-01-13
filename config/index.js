@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 const config = {
   projectName: 'my-taro',
   date: '2021-1-13',
@@ -11,6 +13,12 @@ const config = {
   outputRoot: 'dist',
   plugins: [],
   defineConstants: {
+  },
+  alias: {
+    '@src': resolve(__dirname, '..', 'src'),
+    '@pages': resolve(__dirname, '..', 'src/pages'),
+    '@assets': resolve(__dirname, '..', 'src/assets'),
+    '@utils': resolve(__dirname, '..', 'src/utils'),
   },
   copy: {
     patterns: [
@@ -45,6 +53,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     postcss: {
       autoprefixer: {
         enable: true,
@@ -62,7 +71,7 @@ const config = {
   }
 }
 
-module.exports = function (merge) {
+export default function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }
